@@ -6,184 +6,62 @@
 <title>Dein Angebot in 60 Minuten System</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --pink: #E91E63;
-    --pink-dark: #C2185B;
-    --pink-light: #FCE4EC;
-    --black: #111111;
-    --white: #FFFFFF;
-    --gray: #F5F5F5;
-    --gray-mid: #E0E0E0;
-    --text-muted: #757575;
-  }
-
+  :root { --pink: #cf0390; --pink-dark: #a80275; --pink-light: #fce4f6; --black: #111111; --white: #FFFFFF; --gray: #F5F5F5; --gray-mid: #E0E0E0; --text-muted: #757575; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--black);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 16px 48px;
-  }
-
-  header {
-    text-align: center;
-    margin-bottom: 28px;
-    max-width: 560px;
-    width: 100%;
-  }
-
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 0.04em;
-    color: var(--black);
-    line-height: 1.0;
-  }
-
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 16px 48px; }
+  header { text-align: center; margin-bottom: 28px; max-width: 560px; width: 100%; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.04em; color: var(--black); line-height: 1.0; }
   h1 span { color: var(--pink); }
-
-  .subtitle {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 8px;
-    font-weight: 300;
-    line-height: 1.5;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 560px;
-    background: var(--white);
-    border: 2px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    height: 620px;
-    box-shadow: 6px 6px 0px var(--black);
-  }
-
-  .progress {
-    background: var(--black);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-
-  .step {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 500;
-    flex-shrink: 0;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.35);
-    transition: all 0.3s;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .subtitle { font-size: 14px; color: var(--text-muted); margin-top: 8px; font-weight: 300; line-height: 1.5; }
+  .container { width: 100%; max-width: 560px; background: var(--white); border: 2px solid var(--black); display: flex; flex-direction: column; height: 620px; box-shadow: 6px 6px 0px var(--black); }
+  .progress { background: var(--black); padding: 14px 20px; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .step { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.35); transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
   .step.active { background: var(--pink); color: var(--white); border-color: var(--pink); font-weight: 700; }
   .step.done { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
-
   .step-connector { flex: 1; height: 1px; background: rgba(255,255,255,0.15); }
-
-  .module-label {
-    font-size: 11px;
-    color: var(--white);
-    padding: 7px 20px 9px;
-    background: var(--pink);
-    letter-spacing: 0.06em;
-    font-weight: 500;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-
-  .chat {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    background: var(--white);
-  }
-
+  .module-label { font-size: 11px; color: var(--white); padding: 7px 20px 9px; background: var(--pink); letter-spacing: 0.06em; font-weight: 500; text-transform: uppercase; flex-shrink: 0; }
+  .chat { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; background: var(--white); }
   .chat::-webkit-scrollbar { width: 4px; }
   .chat::-webkit-scrollbar-thumb { background: var(--gray-mid); border-radius: 2px; }
-
   .msg-row { display: flex; gap: 10px; }
   .msg-row.user { flex-direction: row-reverse; }
-
-  .avatar {
-    width: 32px; height: 32px;
-    background: var(--black);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--white);
-    flex-shrink: 0;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-  }
-  .avatar.user-av {
-    background: var(--pink-light);
-    color: var(--pink-dark);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-  }
-
+  .avatar { width: 32px; height: 32px; background: var(--black); display: flex; align-items: center; justify-content: center; color: var(--white); flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.05em; }
+  .avatar.user-av { background: var(--pink-light); color: var(--pink-dark); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; }
   .bubble { max-width: 78%; padding: 12px 16px; font-size: 14px; line-height: 1.65; }
   .msg-row.bot .bubble { background: var(--gray); color: var(--black); border-radius: 0 12px 12px 12px; border: 1px solid var(--gray-mid); }
   .msg-row.user .bubble { background: var(--black); color: var(--white); border-radius: 12px 0 12px 12px; }
-
   .typing-bubble { display: flex; gap: 5px; padding: 16px; }
   .typing-bubble span { width: 7px; height: 7px; border-radius: 50%; background: var(--pink); animation: pulse 1.2s infinite; }
   .typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
   .typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes pulse { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
-
   .quick-replies { padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--gray-mid); background: var(--white); flex-shrink: 0; }
-
   .qr { padding: 8px 16px; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; background: var(--white); border: 1.5px solid var(--gray-mid); border-radius: 20px; color: var(--black); transition: all 0.15s; }
   .qr:hover { border-color: var(--black); background: var(--gray); }
   .qr.next-btn { background: var(--pink); color: var(--white); border-color: var(--pink); font-weight: 500; }
   .qr.next-btn:hover { background: var(--pink-dark); border-color: var(--pink-dark); }
-
   .input-area { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--gray-mid); background: var(--white); flex-shrink: 0; }
-
   #user-input { flex: 1; padding: 10px 16px; font-size: 14px; font-family: 'DM Sans', sans-serif; border: 1.5px solid var(--gray-mid); background: var(--white); color: var(--black); outline: none; transition: border-color 0.2s; }
   #user-input:focus { border-color: var(--pink); }
   #user-input::placeholder { color: var(--text-muted); }
-
   #send-btn { width: 44px; height: 44px; background: var(--pink); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
   #send-btn:hover { background: var(--pink-dark); }
   #send-btn:disabled { background: var(--gray-mid); cursor: default; }
   #send-btn svg { fill: white; }
-
   .error-bubble { background: #FFF3F5; border: 1px solid #FFCDD2; color: #C62828; padding: 10px 14px; font-size: 13px; border-radius: 8px; margin: 8px 0; }
 </style>
 </head>
 <body>
-
 <header>
   <h1>DEIN ANGEBOT IN<br><span>60 MINUTEN</span> SYSTEM</h1>
   <p class="subtitle">Vom „Ich weiß nicht, was ich anbieten soll" zum buchbaren Angebot.</p>
 </header>
-
 <div class="container">
   <div class="progress" id="progress-bar">
-    <div class="step active" id="dot-0">1</div>
-    <div class="step-connector"></div>
-    <div class="step" id="dot-1">2</div>
-    <div class="step-connector"></div>
-    <div class="step" id="dot-2">3</div>
-    <div class="step-connector"></div>
-    <div class="step" id="dot-3">4</div>
-    <div class="step-connector"></div>
+    <div class="step active" id="dot-0">1</div><div class="step-connector"></div>
+    <div class="step" id="dot-1">2</div><div class="step-connector"></div>
+    <div class="step" id="dot-2">3</div><div class="step-connector"></div>
+    <div class="step" id="dot-3">4</div><div class="step-connector"></div>
     <div class="step" id="dot-4">B</div>
   </div>
   <div class="module-label" id="module-label">Modul 1 · Skill-Inventar · 10 Minuten</div>
@@ -196,11 +74,12 @@
     </button>
   </div>
 </div>
-
 <script>
+const STORAGE_KEY = 'angebot60_v2';
 let currentModule = 0;
 let history = [];
 let loading = false;
+let matchResult = '';
 
 const MODULE_LABELS = [
   'Modul 1 · Skill-Inventar · 10 Minuten',
@@ -209,16 +88,62 @@ const MODULE_LABELS = [
   'Modul 4 · Angebot auf den Punkt · 15 Minuten',
   'Bonus · Dein erster Schritt · 10 Minuten'
 ];
-
 const NEXT_LABELS = ['→ Weiter zu Modul 2','→ Weiter zu Modul 3','→ Weiter zu Modul 4','→ Weiter zum Bonus',''];
 
-const SYSTEM_PROMPTS = [
-  `Du bist eine warmherzige, direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 1: Skill-Inventar (10 Minuten). Stelle immer nur EINE Frage gleichzeitig. Fang an: Was hat sie in ihrem Berufsleben anderen Menschen zuletzt wirklich abgenommen oder erleichtert? Nach 3-4 Nachrichten: Fass die Skills als kurze Liste zusammen. Dann sag ihr, sie soll auf "Weiter zu Modul 2" klicken. Maximal 3 Sätze pro Antwort. Kein Marketing-Sprech.`,
-  `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 2: Markt-Check (10 Minuten). Erkläre kurz welche VA-Skills aktuell gefragt sind: Social Media, E-Mail & Kalender, Content Creation, Launch-Support, Kundenservice, Buchhaltungsvorbereitung, Tech-Support. Frag dann: Welche davon klingen nach "das könnte ich"? Nur EINE Frage. Nach 2-3 Nachrichten Zusammenfassung + sag ihr, auf "Weiter zu Modul 3" zu klicken.`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 3: Match-Moment (15 Minuten). Stell genau diese Frage: "Was von dem, was du kannst und was gefragt ist, würdest du auch den ganzen Tag machen – ohne dass es sich nach Arbeit anfühlt?" Eine Frage. Hilf ihr, DEN einen Match klar zu benennen. Nach dem Match: kurze Bestätigung + "Weiter zu Modul 4".`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 4: Angebot auf den Punkt (15 Minuten). Vorlage: "[Dienstleistung] – Ich helfe [Zielgruppe] dabei, [Ergebnis] zu erreichen. Preis: [X] €". Geh Schritt für Schritt vor – eine Frage nach der anderen. Formuliere am Ende ihr fertiges Angebot in Anführungszeichen. Dann sag: auf "Weiter zum Bonus" klicken.`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft der BONUS: Erster Schritt in den nächsten 24 Stunden. Optionen: 1) Facebook-Gruppen, 2) Netzwerk direkt anschreiben, 3) Instagram Story. Frag welche Option sich am machbarsten anfühlt. Gib ihr einen kurzen Text zum copy-pasten. Verabschiede sie warm – sie hat heute etwas geschafft, das die meisten nie tun.`
-];
+function getSystemPrompt(module) {
+  const prompts = [
+    `Du bist eine direkte KI-Sparringspartnerin. Sprich die Nutzerin IMMER mit DU an, niemals mit Sie.
+MODUL 1: Skill-Inventar. Maximal 3 Fragen total, dann Zusammenfassung und weiter.
+Regeln: Nur eine Frage auf einmal. Kurz und direkt, max 2 Sätze. Kein Lob, kein Filler.
+Nach max 3 Antworten: Skills als kurze Liste zusammenfassen, dann sagen sie soll auf "Weiter zu Modul 2" klicken.
+Erste Frage: Was haben andere in deinem Job oder Alltag zuletzt bei dir um Hilfe gebeten – konkret?`,
+
+    `Du bist eine direkte KI-Sparringspartnerin. Sprich die Nutzerin IMMER mit DU an.
+MODUL 2: Markt-Check. Maximal 2 Fragen, dann weiter.
+Erkläre in 1-2 Sätzen welche VA-Skills gefragt sind: Social Media, E-Mail & Kalender, Content, Launch-Support, Kundenservice, Buchhaltung, Tech & Tools.
+Dann frag: Welche davon klingen für dich nach "das könnte ich"?
+Nach der Antwort: kurze Zusammenfassung + sagen sie soll auf "Weiter zu Modul 3" klicken.`,
+
+    `Du bist eine direkte KI-Sparringspartnerin. Sprich die Nutzerin IMMER mit DU an.
+MODUL 3: Match-Moment. Maximal 2 Fragen, dann Match benennen.
+Frage: "Von allem was du kannst und was gefragt ist – was würdest du auch den ganzen Tag machen ohne dass es sich wie Arbeit anfühlt?"
+Wenn die Antwort zu abstrakt ist: einmal nachfragen nach konkreter VA-Dienstleistung.
+Match muss konkret und buchbar sein (z.B. "Instagram-Content für Coaches" – keine abstrakten Begriffe).
+Match klar benennen + sagen sie soll auf "Weiter zu Modul 4" klicken.`,
+
+    `Du bist eine direkte KI-Sparringspartnerin. Sprich die Nutzerin IMMER mit DU an.
+MODUL 4: Angebot formulieren. Maximal 3 Fragen, dann fertiges Angebot.
+Match aus Modul 3: ${matchResult || 'frag kurz: Was war dein Match aus Modul 3?'}
+Stelle nacheinander nur diese Fragen:
+1. Für wen genau? (z.B. Coaches, Therapeuten, Online-Shop-Betreiber)
+2. Was ist das konkrete Ergebnis für den Kunden?
+3. Welchen Preis stellst du dir vor? (300-500€/Monat oder 150-300€ Paket)
+Dann sofort das fertige Angebot in Anführungszeichen formulieren und sagen sie soll auf "Weiter zum Bonus" klicken.`,
+
+    `Du bist eine direkte KI-Sparringspartnerin. Sprich die Nutzerin IMMER mit DU an.
+BONUS: Erster Schritt. Kurz und konkret, maximal 1 Frage.
+Frage: Welche Option fühlt sich machbarer an? 1) Facebook-Gruppe 2) 3 Menschen per WhatsApp anschreiben 3) Instagram Story
+Nach der Antwort: fertigen Text zum copy-pasten geben. Dann warme, kurze Verabschiedung – sie hat heute etwas getan das die meisten nie tun.`
+  ];
+  return prompts[module];
+}
+
+function saveSession() {
+  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ currentModule, history, matchResult })); } catch(e) {}
+}
+
+function loadSession() {
+  try {
+    const s = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
+    if (s && s.history && s.history.length > 0) {
+      currentModule = s.currentModule || 0;
+      history = s.history || [];
+      matchResult = s.matchResult || '';
+      return true;
+    }
+  } catch(e) {}
+  return false;
+}
 
 function updateProgress() {
   for (let i = 0; i < 5; i++) {
@@ -237,7 +162,7 @@ function addMsg(role, text) {
   av.textContent = role === 'bot' ? 'KI' : 'Du';
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
-  bubble.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  bubble.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^#+\s.*/gm, '');
   row.appendChild(av); row.appendChild(bubble);
   chat.appendChild(row);
   chat.scrollTop = chat.scrollHeight;
@@ -248,8 +173,7 @@ function showTyping() {
   const row = document.createElement('div');
   row.className = 'msg-row bot'; row.id = 'typing';
   row.innerHTML = '<div class="avatar">KI</div><div class="bubble"><div class="typing-bubble"><span></span><span></span><span></span></div></div>';
-  chat.appendChild(row);
-  chat.scrollTop = chat.scrollHeight;
+  chat.appendChild(row); chat.scrollTop = chat.scrollHeight;
 }
 
 function removeTyping() { const t = document.getElementById('typing'); if (t) t.remove(); }
@@ -269,15 +193,22 @@ function setQuickReplies(options, isNext) {
 
 async function callAPI(msg) {
   history.push({ role: 'user', content: msg });
+  saveSession();
+  const trimmed = history.slice(-8);
   const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ system: SYSTEM_PROMPTS[currentModule], messages: history })
+    body: JSON.stringify({ system: getSystemPrompt(currentModule), messages: trimmed })
   });
   if (!res.ok) throw new Error('API Fehler ' + res.status);
   const data = await res.json();
   const reply = data.reply || '';
   history.push({ role: 'assistant', content: reply });
+  if (currentModule === 2) {
+    const m = reply.match(/match[:\s"]+([^\n"*]+)/i);
+    if (m) matchResult = m[1].trim();
+  }
+  saveSession();
   return reply;
 }
 
@@ -299,11 +230,10 @@ async function handleInput(text) {
     }
   } catch(e) {
     removeTyping();
-    const chat = document.getElementById('chat-area');
     const err = document.createElement('div');
     err.className = 'error-bubble';
-    err.textContent = 'Verbindungsfehler – bitte Seite neu laden.';
-    chat.appendChild(err);
+    err.textContent = 'Verbindungsfehler – bitte nochmal senden.';
+    document.getElementById('chat-area').appendChild(err);
   }
   loading = false;
   document.getElementById('send-btn').disabled = false;
@@ -314,7 +244,20 @@ function nextModule() {
   currentModule++;
   history = [];
   updateProgress();
+  saveSession();
   startModule();
+}
+
+function restoreChat() {
+  document.getElementById('chat-area').innerHTML = '';
+  history.forEach(msg => addMsg(msg.role === 'user' ? 'user' : 'bot', msg.content));
+  const lastBot = [...history].reverse().find(m => m.role === 'assistant');
+  if (lastBot) {
+    const lower = lastBot.content.toLowerCase();
+    if ((lower.includes('weiter zu modul') || lower.includes('weiter zum bonus')) && currentModule < 4) {
+      setQuickReplies([NEXT_LABELS[currentModule]], true);
+    }
+  }
 }
 
 async function startModule() {
@@ -323,7 +266,7 @@ async function startModule() {
   setQuickReplies([]);
   showTyping();
   try {
-    const reply = await callAPI('Starte das Modul jetzt. Nenn kurz den Modulnamen und stell sofort deine erste Frage. Maximal 3 Sätze.');
+    const reply = await callAPI('Starte das Modul jetzt. Stell sofort die erste Frage. Maximal 2 Sätze.');
     removeTyping();
     addMsg('bot', reply);
   } catch(e) {
@@ -335,13 +278,12 @@ async function startModule() {
 }
 
 function handleSend() { handleInput(document.getElementById('user-input').value.trim()); }
-
 document.getElementById('user-input').addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
 });
 
 updateProgress();
-startModule();
+if (loadSession()) { restoreChat(); } else { startModule(); }
 </script>
 </body>
 </html>
