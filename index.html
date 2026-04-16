@@ -7,9 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --pink: #E91E63;
-    --pink-dark: #C2185B;
-    --pink-light: #FCE4EC;
+    --pink: #cf0390;
+    --pink-dark: #a80275;
+    --pink-light: #fce4f6;
     --black: #111111;
     --white: #FFFFFF;
     --gray: #F5F5F5;
@@ -30,111 +30,33 @@
     padding: 32px 16px 48px;
   }
 
-  header {
-    text-align: center;
-    margin-bottom: 28px;
-    max-width: 560px;
-    width: 100%;
-  }
+  header { text-align: center; margin-bottom: 28px; max-width: 560px; width: 100%; }
 
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 0.04em;
-    color: var(--black);
-    line-height: 1.0;
-  }
-
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.04em; color: var(--black); line-height: 1.0; }
   h1 span { color: var(--pink); }
 
-  .subtitle {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 8px;
-    font-weight: 300;
-    line-height: 1.5;
-  }
+  .subtitle { font-size: 14px; color: var(--text-muted); margin-top: 8px; font-weight: 300; line-height: 1.5; }
 
-  .container {
-    width: 100%;
-    max-width: 560px;
-    background: var(--white);
-    border: 2px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    height: 620px;
-    box-shadow: 6px 6px 0px var(--black);
-  }
+  .container { width: 100%; max-width: 560px; background: var(--white); border: 2px solid var(--black); display: flex; flex-direction: column; height: 620px; box-shadow: 6px 6px 0px var(--black); }
 
-  .progress {
-    background: var(--black);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-  }
+  .progress { background: var(--black); padding: 14px 20px; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 
-  .step {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 500;
-    flex-shrink: 0;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.35);
-    transition: all 0.3s;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .step { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.35); transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
   .step.active { background: var(--pink); color: var(--white); border-color: var(--pink); font-weight: 700; }
   .step.done { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
-
   .step-connector { flex: 1; height: 1px; background: rgba(255,255,255,0.15); }
 
-  .module-label {
-    font-size: 11px;
-    color: var(--white);
-    padding: 7px 20px 9px;
-    background: var(--pink);
-    letter-spacing: 0.06em;
-    font-weight: 500;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
+  .module-label { font-size: 11px; color: var(--white); padding: 7px 20px 9px; background: var(--pink); letter-spacing: 0.06em; font-weight: 500; text-transform: uppercase; flex-shrink: 0; }
 
-  .chat {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    background: var(--white);
-  }
-
+  .chat { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; background: var(--white); }
   .chat::-webkit-scrollbar { width: 4px; }
   .chat::-webkit-scrollbar-thumb { background: var(--gray-mid); border-radius: 2px; }
 
   .msg-row { display: flex; gap: 10px; }
   .msg-row.user { flex-direction: row-reverse; }
 
-  .avatar {
-    width: 32px; height: 32px;
-    background: var(--black);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--white);
-    flex-shrink: 0;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-  }
-  .avatar.user-av {
-    background: var(--pink-light);
-    color: var(--pink-dark);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-  }
+  .avatar { width: 32px; height: 32px; background: var(--black); display: flex; align-items: center; justify-content: center; color: var(--white); flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.05em; }
+  .avatar.user-av { background: var(--pink-light); color: var(--pink-dark); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; }
 
   .bubble { max-width: 78%; padding: 12px 16px; font-size: 14px; line-height: 1.65; }
   .msg-row.bot .bubble { background: var(--gray); color: var(--black); border-radius: 0 12px 12px 12px; border: 1px solid var(--gray-mid); }
@@ -147,23 +69,19 @@
   @keyframes pulse { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
 
   .quick-replies { padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--gray-mid); background: var(--white); flex-shrink: 0; }
-
   .qr { padding: 8px 16px; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; background: var(--white); border: 1.5px solid var(--gray-mid); border-radius: 20px; color: var(--black); transition: all 0.15s; }
   .qr:hover { border-color: var(--black); background: var(--gray); }
   .qr.next-btn { background: var(--pink); color: var(--white); border-color: var(--pink); font-weight: 500; }
   .qr.next-btn:hover { background: var(--pink-dark); border-color: var(--pink-dark); }
 
   .input-area { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--gray-mid); background: var(--white); flex-shrink: 0; }
-
   #user-input { flex: 1; padding: 10px 16px; font-size: 14px; font-family: 'DM Sans', sans-serif; border: 1.5px solid var(--gray-mid); background: var(--white); color: var(--black); outline: none; transition: border-color 0.2s; }
   #user-input:focus { border-color: var(--pink); }
   #user-input::placeholder { color: var(--text-muted); }
-
   #send-btn { width: 44px; height: 44px; background: var(--pink); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
   #send-btn:hover { background: var(--pink-dark); }
   #send-btn:disabled { background: var(--gray-mid); cursor: default; }
   #send-btn svg { fill: white; }
-
   .error-bubble { background: #FFF3F5; border: 1px solid #FFCDD2; color: #C62828; padding: 10px 14px; font-size: 13px; border-radius: 8px; margin: 8px 0; }
 </style>
 </head>
@@ -201,6 +119,7 @@
 let currentModule = 0;
 let history = [];
 let loading = false;
+let matchResult = '';
 
 const MODULE_LABELS = [
   'Modul 1 · Skill-Inventar · 10 Minuten',
@@ -212,13 +131,95 @@ const MODULE_LABELS = [
 
 const NEXT_LABELS = ['→ Weiter zu Modul 2','→ Weiter zu Modul 3','→ Weiter zu Modul 4','→ Weiter zum Bonus',''];
 
-const SYSTEM_PROMPTS = [
-  `Du bist eine warmherzige, direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 1: Skill-Inventar (10 Minuten). Stelle immer nur EINE Frage gleichzeitig. Fang an: Was hat sie in ihrem Berufsleben anderen Menschen zuletzt wirklich abgenommen oder erleichtert? Nach 3-4 Nachrichten: Fass die Skills als kurze Liste zusammen. Dann sag ihr, sie soll auf "Weiter zu Modul 2" klicken. Maximal 3 Sätze pro Antwort. Kein Marketing-Sprech.`,
-  `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 2: Markt-Check (10 Minuten). Erkläre kurz welche VA-Skills aktuell gefragt sind: Social Media, E-Mail & Kalender, Content Creation, Launch-Support, Kundenservice, Buchhaltungsvorbereitung, Tech-Support. Frag dann: Welche davon klingen nach "das könnte ich"? Nur EINE Frage. Nach 2-3 Nachrichten Zusammenfassung + sag ihr, auf "Weiter zu Modul 3" zu klicken.`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 3: Match-Moment (15 Minuten). Stell genau diese Frage: "Was von dem, was du kannst und was gefragt ist, würdest du auch den ganzen Tag machen – ohne dass es sich nach Arbeit anfühlt?" Eine Frage. Hilf ihr, DEN einen Match klar zu benennen. Nach dem Match: kurze Bestätigung + "Weiter zu Modul 4".`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft MODUL 4: Angebot auf den Punkt (15 Minuten). Vorlage: "[Dienstleistung] – Ich helfe [Zielgruppe] dabei, [Ergebnis] zu erreichen. Preis: [X] €". Geh Schritt für Schritt vor – eine Frage nach der anderen. Formuliere am Ende ihr fertiges Angebot in Anführungszeichen. Dann sag: auf "Weiter zum Bonus" klicken.`,
-  `Du bist eine KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Gerade läuft der BONUS: Erster Schritt in den nächsten 24 Stunden. Optionen: 1) Facebook-Gruppen, 2) Netzwerk direkt anschreiben, 3) Instagram Story. Frag welche Option sich am machbarsten anfühlt. Gib ihr einen kurzen Text zum copy-pasten. Verabschiede sie warm – sie hat heute etwas geschafft, das die meisten nie tun.`
-];
+function getSystemPrompt(module) {
+  const prompts = [
+    `Du bist eine direkte, ehrliche KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Sprich die Nutzerin immer mit DU an, niemals mit Sie.
+
+MODUL 1: Skill-Inventar (10 Minuten)
+
+Dein Ziel: Finde heraus was die Nutzerin wirklich kann – nicht was sie glaubt können zu sollen. Geh in die Tiefe. Hake nach. Lass dich nicht mit oberflächlichen Antworten abspeisen.
+
+Regeln:
+- Immer nur EINE Frage auf einmal
+- Wenn die Antwort vage ist: konkret nachfragen ("Was genau hast du da gemacht?", "Wie hast du das gelöst?")
+- Keine Lobhudelei, keine Motivationssprüche
+- Kurze, direkte Antworten – maximal 3 Sätze
+- Erst nach 4-5 echten Antworten: Skills als klare Liste zusammenfassen
+- Dann sagen: Klick auf "Weiter zu Modul 2"
+
+Erste Frage: Was haben andere Menschen in deinem Job oder Alltag zuletzt bei dir um Hilfe gebeten – ganz konkret?`,
+
+    `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Sprich die Nutzerin immer mit DU an, niemals mit Sie.
+
+MODUL 2: Markt-Check (10 Minuten)
+
+Erkläre kurz (2-3 Sätze) welche VA-Skills aktuell am meisten gefragt sind und Geld bringen:
+- Social Media Management & Content Creation
+- E-Mail-Management & Kalenderorganisation  
+- Launch-Support für Online-Unternehmer
+- Kundenservice & Community-Management
+- Buchhaltungsvorbereitung & Rechnungen
+- Tech & Tools (Notion, Canva, ActiveCampaign etc.)
+- Recherche & Datenaufbereitung
+
+Dann frag: Welche davon klingen für dich nach "das könnte ich" oder "das mache ich doch eh schon"?
+
+Hake nach wenn nötig. Nach 2-3 Nachrichten: klare Zusammenfassung welche Skills marktfähig sind + "Weiter zu Modul 3".`,
+
+    `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Sprich die Nutzerin immer mit DU an, niemals mit Sie.
+
+MODUL 3: Match-Moment (15 Minuten) – DER KERN
+
+Dein Ziel: Finde die goldene Schnittmenge zwischen Können, Wollen und Marktbedarf. Geh tief. Das ist nicht in einer Antwort erledigt.
+
+Vorgehen:
+1. Stell diese eine Frage: "Von allem was du kannst und was gefragt ist – was würdest du auch den ganzen Tag machen ohne dass es sich wie Arbeit anfühlt?"
+2. Wenn die Antwort zu breit ist: eingrenzen ("Kannst du das konkreter machen?", "Was genau daran macht dir Spaß?")
+3. Wenn mehrere Optionen kommen: hilf ihr, sich auf EINE zu fokussieren
+4. Den Match klar benennen und bestätigen – aber nur wenn er wirklich konkret und als VA-Dienstleistung verkaufbar ist
+5. Den Match für Modul 4 merken und beim Weiterklicken mitgeben
+
+Wichtig: Kein Match der zu abstrakt ist (z.B. "Entdecken & Erforschen" ist KEINE VA-Dienstleistung). Immer auf konkrete, buchbare Skills hinarbeiten.
+
+Nach klarem Match: kurze Bestätigung + "Weiter zu Modul 4".`,
+
+    `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Sprich die Nutzerin immer mit DU an, niemals mit Sie.
+
+MODUL 4: Angebot auf den Punkt (15 Minuten)
+
+Der Match aus Modul 3: ${matchResult || 'wurde bereits erarbeitet – frag die Nutzerin kurz was ihr Match war falls unklar'}
+
+Dein Ziel: Ein konkretes, buchbares Angebot in 2-3 Sätzen formulieren.
+
+Vorlage: "[Dienstleistung] – Ich helfe [Zielgruppe] dabei, [konkretes Ergebnis] zu erreichen. Preis: [X] €"
+
+Geh Schritt für Schritt vor – EINE Frage nach der anderen:
+1. Basierend auf dem Match: Was ist die konkrete Dienstleistung? (z.B. nicht "Social Media" sondern "Instagram-Content erstellen und planen")
+2. Für wen genau? (z.B. "Coaches", "Online-Shop-Betreiber", "Therapeuten")
+3. Was ist das konkrete, messbare Ergebnis für den Kunden?
+4. Preis? Orientierung: 300-500€/Monat Retainer für Einsteiger, 150-300€ für Einzelpakete
+
+Wenn eine Antwort zu vage ist: nachfragen und konkretisieren.
+Am Ende: fertiges Angebot als klaren Text in Anführungszeichen formulieren.
+Dann: "Weiter zum Bonus" sagen.`,
+
+    `Du bist eine direkte KI-Sparringspartnerin im Kurs "Dein Angebot in 60 Minuten". Sprich die Nutzerin immer mit DU an, niemals mit Sie.
+
+BONUS: Erster Schritt in den nächsten 24 Stunden
+
+Die Nutzerin hat jetzt ein fertiges Angebot. Kein langes Überlegen mehr – jetzt geht es um Umsetzung.
+
+Gib einen konkreten Aktionsplan. Erkläre kurz die drei Optionen:
+1. 2-3 Facebook-Gruppen für Unternehmer/innen – Angebot vorstellen
+2. 3 Menschen aus dem Netzwerk direkt per WhatsApp oder DM anschreiben
+3. Instagram Story mit dem Angebot posten
+
+Frag welche Option sich für sie am machbarsten anfühlt.
+Gib ihr dann einen kurzen, konkreten Text den sie copy-pasten kann – passend zur gewählten Option.
+Verabschiede sie direkt und warm. Kein Marketing-Sprech. Sag ihr: Sie hat heute etwas getan, das die meisten nie tun.`
+  ];
+  return prompts[module];
+}
 
 function updateProgress() {
   for (let i = 0; i < 5; i++) {
@@ -237,7 +238,7 @@ function addMsg(role, text) {
   av.textContent = role === 'bot' ? 'KI' : 'Du';
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
-  bubble.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  bubble.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^# .+/gm, '').replace(/^## .+/gm, '');
   row.appendChild(av); row.appendChild(bubble);
   chat.appendChild(row);
   chat.scrollTop = chat.scrollHeight;
@@ -272,12 +273,19 @@ async function callAPI(msg) {
   const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ system: SYSTEM_PROMPTS[currentModule], messages: history })
+    body: JSON.stringify({ system: getSystemPrompt(currentModule), messages: history })
   });
   if (!res.ok) throw new Error('API Fehler ' + res.status);
   const data = await res.json();
   const reply = data.reply || '';
   history.push({ role: 'assistant', content: reply });
+
+  // Match aus Modul 3 extrahieren für Modul 4
+  if (currentModule === 2) {
+    const matchMatch = reply.match(/dein match[:\s]+([^\n.!]+)/i) || reply.match(/match[:\s]+\*\*([^*]+)\*\*/i);
+    if (matchMatch) matchResult = matchMatch[1].trim();
+  }
+
   return reply;
 }
 
@@ -323,7 +331,7 @@ async function startModule() {
   setQuickReplies([]);
   showTyping();
   try {
-    const reply = await callAPI('Starte das Modul jetzt. Nenn kurz den Modulnamen und stell sofort deine erste Frage. Maximal 3 Sätze.');
+    const reply = await callAPI('Starte das Modul jetzt. Stell sofort deine erste Frage. Kein langer Intro-Text, maximal 3 Sätze.');
     removeTyping();
     addMsg('bot', reply);
   } catch(e) {
